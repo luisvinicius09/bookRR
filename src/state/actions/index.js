@@ -15,3 +15,11 @@ export const fetchCarsData = (service = axios) => async (dispatch) => {
     dispatch({ type: FETCH_ERROR, error });
   }
 }
+
+export const handleSideBar = () => ({
+  type: "HANDLE_SIDEBAR",
+});
+
+export const handleProfileModal = () => ({
+  type: "HANDLE_PROFILE",
+})
