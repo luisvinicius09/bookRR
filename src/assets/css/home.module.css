@@ -3,6 +3,8 @@
   width: 100vw; 
   height: 100vh; 
   background: radial-gradient(var(--four), var(--one));
+  display: flex;
+  flex-direction: column;
 }
 
 .mainImage {
@@ -33,6 +35,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 0px;
+  flex-direction: column;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -100px;
+  color: #fff;
+}
+
+.titleWrapper h1 {
+  font-family: 'Zen Tokyo Zoo', cursive;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.titleWrapper a {
+  background-color: var(--four);
+  padding: 15px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
 }
 
 @media only screen and (min-width: 550px) {

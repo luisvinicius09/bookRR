@@ -1,3 +1,12 @@
+.container {
+  background-color: var(--seven);
+}
+
+.titleName {
+  font-family: 'Tourney', cursive;
+  color: var(--two);
+}
+
 @media only screen and (min-width: 500px) {
   .container {
     padding: 10px;
@@ -5,6 +14,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* align-items: center; */
+  }
+
+  .titleName {
+    display: flex;
+    align-items: center;
   }
 
   .linksWrapper {
@@ -12,6 +27,16 @@
     flex-direction: column;
     position: relative;
     top: -150px;
+  }
+
+  .linksWrapper a {
+    text-decoration: none;
+    color: var(--two);
+    font-size: 21px;
+  }
+
+  .footerSidebar {
+    /* align-items: center; */
   }
 }
 
