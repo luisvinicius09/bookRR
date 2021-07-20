@@ -1,0 +1,48 @@
+
+.container {
+  width: 100vw; 
+  height: 100vh; 
+  background: radial-gradient(var(--four), var(--one));
+}
+
+.mainImage {
+  width: 80%;
+  height: auto;
+}
+
+.topIconsWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.iconClicker:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.topIcons {
+  width: 30px;
+  height: auto;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.mainImageWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 550px) {
+  .wrapper {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .wrapper {
+    display: block;
+  }
+}
