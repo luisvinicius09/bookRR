@@ -9,7 +9,7 @@ const SideBar = () => {
       </div>
       <div className={styles.linksWrapper}>
         <Link to="/home">HOME</Link>
-        <Link to="/allcars">CARS</Link>
+        <Link to="/cars">CARS</Link>
         <a href=".">PROFILE</a>
       </div>
       <div className={styles.footerSidebar}>

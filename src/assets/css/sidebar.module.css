@@ -17,9 +17,10 @@
     /* align-items: center; */
   }
 
-  .titleName {
-    display: flex;
-    align-items: center;
+  .titleName,
+  .footerSidebar {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .linksWrapper {
@@ -27,16 +28,14 @@
     flex-direction: column;
     position: relative;
     top: -150px;
+    margin-left: 22px;
+    font-weight: bold;
   }
 
   .linksWrapper a {
     text-decoration: none;
     color: var(--two);
     font-size: 21px;
-  }
-
-  .footerSidebar {
-    /* align-items: center; */
   }
 }
 
