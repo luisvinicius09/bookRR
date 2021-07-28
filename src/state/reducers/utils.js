@@ -2,6 +2,7 @@ const initialState = {
   modal: false,
   sideBar: false,
   profile: false,
+  carsModal: false,
 };
 
 const utilReducer = (state = initialState, action) => {
@@ -22,6 +23,13 @@ const utilReducer = (state = initialState, action) => {
       return {
         ...state,
         sideBar: !state.sideBar
+      }
+    case "HANDLE_CARS_MODAL":
+      return {
+        ...state,
+        carsModal: !state.carsModal,
+        modal: false,
+        sideBar: false,
       }
     default:
       return state;
