@@ -5,25 +5,37 @@ import BlueCar from '../assets/images/blueCar.png'
 import MenuImage from '../assets/images/menu.png'
 import ProfileImage from '../assets/images/profile.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { handleSideBar, handleProfileModal } from '../state/actions';
+import { handleSideBar, handleProfileModal, fetchCarsData, handleCarsModal } from '../state/actions';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.utils);
+  const state = useSelector((state) => state);
 
+  // Side bar
   const handleSB = () => {
     dispatch(handleSideBar());
-  }
+  };
 
+  // Profile modal
   const handlePM = () => {
     dispatch(handleProfileModal());
-  }
+  };
+
+  // Cars modal
+  const handleCM = () => {
+    dispatch(handleCarsModal());
+  };
+
+  useEffect(() => {
+    dispatch(fetchCarsData());
+  }, [dispatch]);
 
   console.log(state);
   return (
     <div className={styles.wrapper}>
-      {state.sideBar ? <SideBar /> : null}
+      {state.utils.sideBar ? <SideBar /> : null}
       <Container fluid={true} className={styles.container}>
           <Row>
             <div className={styles.topIconsWrapper}>
@@ -33,7 +45,7 @@ const Home = () => {
                 </span>
               </div>
               <div>
-                <span onClick={handlePM} className={styles.iconClicker}>
+                <span onClick={state.user.loggedIn ? null : handlePM} className={styles.iconClicker}>
                   <img src={ProfileImage} alt="" className={styles.topIcons}/>
                 </span>
               </div>
@@ -45,10 +57,10 @@ const Home = () => {
                 <img src={BlueCar} alt="Blue car" className={styles.mainImage}/>
                 <div className={styles.titleWrapper}>
                   <h1>YOUR NEW EXOTIC EXPERIENCE</h1>
-                  <Link to="/cars">
+                  <a href="." onClick={handleCM}>
                     See more
                     <span> -</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
