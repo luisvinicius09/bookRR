@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { handleSideBar, handleProfileModal, fetchCarsData, handleCarsModal } from '../state/actions';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import CarsModal from '../components/CarsModal';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ const Home = () => {
                 <img src={BlueCar} alt="Blue car" className={styles.mainImage}/>
                 <div className={styles.titleWrapper}>
                   <h1>YOUR NEW EXOTIC EXPERIENCE</h1>
-                  <a href="." onClick={handleCM}>
+                  <a href="." onClick={handleCM}> {/* TODO: Change to span and style it */}
                     See more
                     <span> -</span>
                   </a>
@@ -66,7 +67,9 @@ const Home = () => {
             </div>
           </Row>
 
-          <Modal isOpen={state.profile} toggle={handlePM}>
+          <CarsModal toggleHandler={handleCM}/>
+
+          <Modal isOpen={state.utils.profile} toggle={handlePM}>
             <ModalHeader>
               <button onClick={handlePM}>Close</button>
             </ModalHeader>
