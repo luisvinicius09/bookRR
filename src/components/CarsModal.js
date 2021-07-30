@@ -1,6 +1,7 @@
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import CarCard from './CarCard';
+import styles from '../assets/css/carsmodal.module.css';
 
 const CarsModal = ({ toggleHandler }) => {
   const state = useSelector((state) => state);
@@ -22,7 +23,7 @@ const CarsModal = ({ toggleHandler }) => {
       <ModalHeader>
         Header {/* TODO: Search/Filter bar */}
       </ModalHeader>
-      <ModalBody>
+      <ModalBody className={styles.bodyContainer}>
         {renderCars()}
       </ModalBody>
     </Modal>
