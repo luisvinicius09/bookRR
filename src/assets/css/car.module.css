@@ -1,0 +1,20 @@
+.container {
+  width: 100vw; 
+  height: 100vh; 
+  background: radial-gradient(var(--four), var(--one));
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media only screen and (min-width: 550px) {
+  .wrapper {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .wrapper {
+    display: block;
+  }
+}

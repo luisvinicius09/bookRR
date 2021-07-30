@@ -1,0 +1,17 @@
+.topIconsWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.iconClicker:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.topIcons {
+  width: 30px;
+  height: auto;
+  margin-right: 20px;
+  margin-left: 20px;
+}
