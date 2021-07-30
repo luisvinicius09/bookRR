@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import CarsModal from '../components/CarsModal';
 import NavBar from '../components/NavBar';
+import ProfileModal from '../components/ProfileModal';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -39,20 +40,6 @@ const Home = () => {
     <div className={styles.wrapper}>
       {state.utils.sideBar ? <SideBar /> : null}
       <Container fluid={true} className={styles.container}>
-          {/* <Row>
-            <div className={styles.topIconsWrapper}>
-              <div>
-                <span onClick={handleSB} className={styles.iconClicker}>
-                  <img src={MenuImage} alt="" className={styles.topIcons}/>
-                </span>
-              </div>
-              <div>
-                <span onClick={state.user.loggedIn ? null : handlePM} className={styles.iconClicker}>
-                  <img src={ProfileImage} alt="" className={styles.topIcons}/>
-                </span>
-              </div>
-            </div>
-          </Row> */}
           <NavBar handlerSB={handleSB} handlerPM={state.user.loggedIn ? null : handlePM} />
           <Row className="flex-grow-1" style={{maxHeight: '100%'}}>
             <div>
@@ -71,14 +58,8 @@ const Home = () => {
 
           <CarsModal toggleHandler={handleCM}/>
 
-          <Modal isOpen={state.utils.profile} toggle={handlePM}>
-            <ModalHeader>
-              <button onClick={handlePM}>Close</button>
-            </ModalHeader>
-            <ModalBody>
-              Works
-            </ModalBody>
-          </Modal>
+          <ProfileModal isOpen={state.utils.profile} toggleHandler={handlePM}/>
+
       </Container>
     </div>
   );
