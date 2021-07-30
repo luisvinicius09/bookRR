@@ -20,11 +20,11 @@ export const fetchCarsData = (service = axios) => async (dispatch) => {
   }
 }
 
-export const fetchCarData = (service = axios, id) => async (dispatch) => {
+export const fetchCarData = (id) => async (dispatch) => {
   dispatch({ type: FETCH_REQUEST });
 
   try {
-    const res = await service.get(`${carsURL}/${id}`);
+    const res = await axios.get(`${carsURL}/${id}`);
 
     dispatch({type: "FETCH_CAR", payload: res.data });
   } catch (error) {
