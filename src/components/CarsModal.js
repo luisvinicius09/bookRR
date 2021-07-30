@@ -21,7 +21,7 @@ const CarsModal = ({ toggleHandler }) => {
   return (
     <Modal toggle={toggleHandler} isOpen={state.utils.carsModal}>
       <ModalHeader>
-        Header {/* TODO: Search/Filter bar */}
+        Car models {/* TODO: Search/Filter bar */}
       </ModalHeader>
       <ModalBody className={styles.bodyContainer}>
         {renderCars()}
