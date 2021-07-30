@@ -2,6 +2,8 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import CarCard from './CarCard';
 import styles from '../assets/css/carsmodal.module.css';
+import { useEffect } from 'react';
+import { fetchCarsData } from '../state/actions';
 
 const CarsModal = ({ toggleHandler }) => {
   const state = useSelector((state) => state);
@@ -14,7 +16,7 @@ const CarsModal = ({ toggleHandler }) => {
       return <h2>No items to display or something went wrong</h2>
     }
     return state.carsData.cars.map((car) => (
-      <CarCard data={car} />
+      <CarCard data={car} key={car.id} />
     ));
   };
 

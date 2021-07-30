@@ -2,8 +2,6 @@ import styles from '../assets/css/home.module.css';
 import { Container, Row, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import SideBar from '../components/SideBar';
 import BlueCar from '../assets/images/blueCar.png'
-import MenuImage from '../assets/images/menu.png'
-import ProfileImage from '../assets/images/profile.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { handleSideBar, handleProfileModal, fetchCarsData, handleCarsModal } from '../state/actions';
 import { Link } from 'react-router-dom';

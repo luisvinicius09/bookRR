@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { Container } from 'reactstrap';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
-import { handleSideBar, handleProfileModal, fetchCarData, handleCarsModal } from '../state/actions';
+import { handleSideBar, handleProfileModal, fetchCarData, handleCarsModal, fetchCarsData } from '../state/actions';
 import styles from '../assets/css/car.module.css';
 import CarsModal from '../components/CarsModal';
 import ProfileModal from '../components/ProfileModal';
@@ -22,6 +22,10 @@ const Car = () => {
       dispatch(fetchCarData(car_id));
     }
   }, [dispatch, car_id, state.carsData.car]);
+
+  useEffect(() => {
+    dispatch(fetchCarsData());
+  }, [dispatch]);
 
   console.log(state);
 
