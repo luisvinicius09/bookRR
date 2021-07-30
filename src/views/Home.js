@@ -58,10 +58,10 @@ const Home = () => {
                 <img src={BlueCar} alt="Blue car" className={styles.mainImage}/>
                 <div className={styles.titleWrapper}>
                   <h1>YOUR NEW EXOTIC EXPERIENCE</h1>
-                  <a href="." onClick={handleCM}> {/* TODO: Change to span and style it */}
+                  <span href="." onClick={handleCM}> {/* TODO: Change to span and style it */}
                     See more
                     <span> -</span>
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
