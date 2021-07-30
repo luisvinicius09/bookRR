@@ -1,0 +1,12 @@
+.cardContainer {
+  text-align: center;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.imgContainer img {
+  width: 150px;
+  height: auto;
+}
