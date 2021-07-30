@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* align-items: center; */
   }
 
   .titleName,
@@ -32,10 +31,20 @@
     font-weight: bold;
   }
 
-  .linksWrapper a {
+  .linksWrapper a,
+  .linksWrapper span {
     text-decoration: none;
     color: var(--two);
     font-size: 21px;
+  }
+
+  .linksWrapper span:hover {
+    cursor: pointer;
+    color: #0d6efd;
+  }
+
+  .footerSidebar a {
+    margin: 10px;
   }
 }
 

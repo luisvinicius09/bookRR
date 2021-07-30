@@ -39,10 +39,10 @@ const SideBar = () => {
         </span>
       </div>
       <div className={styles.footerSidebar}>
-        <a href="https://github.com/luisvinicius09">
+        <a href="https://github.com/luisvinicius09" rel="noreferrer" target="_blank">
           Github
         </a>
-        <a href="https://www.linkedin.com/in/luis-vinicius/">
+        <a href="https://www.linkedin.com/in/luis-vinicius/" rel="noreferrer" target="_blank">
           Linkedin
         </a>
       </div>
