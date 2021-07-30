@@ -6,6 +6,8 @@ import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
 import { handleSideBar, handleProfileModal, fetchCarData, handleCarsModal } from '../state/actions';
 import styles from '../assets/css/car.module.css';
+import CarsModal from '../components/CarsModal';
+import ProfileModal from '../components/ProfileModal';
 
 const Car = () => {
   const state = useSelector((state) => state);
@@ -67,6 +69,11 @@ const Car = () => {
               <h1>{car.name}</h1>
             </div>
           </div>
+
+          <CarsModal toggleHandler={handleCM}/>
+
+          <ProfileModal isOpen={state.utils.profile} toggleHandler={handlePM}/>
+
         </Container>
       )}
     </div>
