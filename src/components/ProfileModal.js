@@ -12,17 +12,9 @@ const ProfileModal = ({ isOpen, toggleHandler }) => {
 
   return (
     <>
-      {/* <Modal isOpen={isOpen} toggle={toggleHandler}>
+      <Modal isOpen={isOpen} toggle={toggleHandler}>
         <ModalHeader>
           <button onClick={toggleHandler}>Close</button>
-        </ModalHeader>
-        <ModalBody>
-          Works
-        </ModalBody>
-      </Modal> */}
-      <Modal isOpen={state.profile} toggle={handlePM}>
-        <ModalHeader>
-          <button onClick={handlePM}>Close</button>
         </ModalHeader>
         <ModalBody>
           Works
