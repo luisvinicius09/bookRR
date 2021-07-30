@@ -67,3 +67,7 @@ export const handleProfileModal = () => ({
 export const handleCarsModal = () => ({
   type: "HANDLE_CARS_MODAL",
 });
+
+export const handleCloseModals = () => ({
+  type: "HANDLE_CLOSE_MODALS",
+})

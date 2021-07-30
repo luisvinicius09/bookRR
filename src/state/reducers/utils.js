@@ -31,6 +31,12 @@ const utilReducer = (state = initialState, action) => {
         modal: false,
         sideBar: false,
       }
+    case "HANDLE_CLOSE_MODALS":
+      return {
+        ...state,
+        carsModal: false,
+        modal: false,
+      }
     default:
       return state;
   }
