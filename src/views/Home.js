@@ -9,6 +9,7 @@ import { handleSideBar, handleProfileModal, fetchCarsData, handleCarsModal } fro
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import CarsModal from '../components/CarsModal';
+import NavBar from '../components/NavBar';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const Home = () => {
     <div className={styles.wrapper}>
       {state.utils.sideBar ? <SideBar /> : null}
       <Container fluid={true} className={styles.container}>
-          <Row>
+          {/* <Row>
             <div className={styles.topIconsWrapper}>
               <div>
                 <span onClick={handleSB} className={styles.iconClicker}>
@@ -51,7 +52,8 @@ const Home = () => {
                 </span>
               </div>
             </div>
-          </Row>
+          </Row> */}
+          <NavBar handlerSB={handleSB} handlerPM={state.user.loggedIn ? null : handlePM} />
           <Row className="flex-grow-1" style={{maxHeight: '100%'}}>
             <div>
               <div className={styles.mainImageWrapper}>
