@@ -1,7 +1,8 @@
 const initialState = {
   loading: false,
   error: null,
-  cars: []
+  cars: [],
+  car: undefined,
 };
 
 const carsReducer = (state = initialState, action) => {
@@ -24,6 +25,13 @@ const carsReducer = (state = initialState, action) => {
         loading: false,
         error: false,
         cars: action.payload
+      }
+    case "FETCH_CAR":
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        car: action.payload,
       }
     default:
       return state;

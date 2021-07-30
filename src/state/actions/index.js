@@ -20,6 +20,18 @@ export const fetchCarsData = (service = axios) => async (dispatch) => {
   }
 }
 
+export const fetchCarData = (service = axios, id) => async (dispatch) => {
+  dispatch({ type: FETCH_REQUEST });
+
+  try {
+    const res = await service.get(`${carsURL}/${id}`);
+
+    dispatch({type: "FETCH_CAR", payload: res.data });
+  } catch (error) {
+    dispatch({ type: FETCH_ERROR, error });
+  }
+}
+
 export const handleRegistration = (service = axios, data) => async (dispatch) => {
   dispatch({ type: 'REQUEST' });
 
