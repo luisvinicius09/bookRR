@@ -4,15 +4,13 @@ const FETCH_REQUEST = 'FETCH_REQUEST';
 
 const FETCH_ERROR = 'FETCH_ERROR';
 
-const carsURL = 'https://api-rentalrr.herokuapp.com/cars';
-
-const logInURL = 'https://api-rentalrr.herokuapp.com/sessions';
+const baseURL = "https://api-rentalrr.herokuapp.com";
 
 export const fetchCarsData = (service = axios) => async (dispatch) => {
   dispatch({ type: FETCH_REQUEST });
 
   try {
-    const res = await service.get(carsURL);
+    const res = await service.get(`${baseURL}/cars`);
 
     dispatch({ type: "FETCH_CARS", payload: res.data });
   } catch (error) {
@@ -24,7 +22,7 @@ export const fetchCarData = (id) => async (dispatch) => {
   dispatch({ type: FETCH_REQUEST });
 
   try {
-    const res = await axios.get(`${carsURL}/${id}`);
+    const res = await axios.get(`${baseURL}/cars/${id}`);
 
     dispatch({type: "FETCH_CAR", payload: res.data });
   } catch (error) {
@@ -36,13 +34,13 @@ export const handleRegistration = (data) => async (dispatch) => {
   dispatch({ type: 'REQUEST' });
 
   try {
-    const res = await axios.post(logInURL, {
+    const res = await axios.post(`${baseURL}/registrations`, {
       user: data,
     });
 
-    dispatch({ type: "REGISTER_USER", payload: res.data})
+    dispatch({ type: "REGISTER_USER", payload: res.data })
   } catch (error) {
-    dispatch({ type: "ERROR", error});
+    dispatch({ type: "ERROR", error });
   }
 }
 
@@ -50,13 +48,25 @@ export const handleLogin = (data) => async (dispatch) => {
   dispatch({ type: 'REQUEST' });
 
   try {
-    const res = await axios.post(logInURL, {
+    const res = await axios.post(`${baseURL}/sessions`, {
       user: data,
     });
 
-    dispatch({ type: "LOG_IN", payload: res.data})
+    dispatch({ type: "LOG_IN", payload: res.data })
   } catch (error) {
-    dispatch({ type: "ERROR", error});
+    dispatch({ type: "ERROR", error });
+  }
+}
+
+export const handleIsLogged_In = () => async (dispatch) => {
+  dispatch({ type: "REQUEST" });
+  
+  try {
+    const res = await axios.get(`${baseURL}/logged_in`);
+
+    dispatch({ type: "LOGGED_IN", payload: res.data });
+  } catch (error) {
+    dispatch({ type: "ERROR", error });
   }
 }
 
