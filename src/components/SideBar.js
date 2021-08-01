@@ -30,13 +30,19 @@ const SideBar = () => {
         >
           CARS
         </span>
-        <span
+        <Link
+          to="/appoiments"
+          onClick={closeModals}
+        >
+          APPOIMENTS
+        </Link>
+        {/* <span
           onClick={() => {
             dispatch(handleProfileModal());
           }}
         >
           PROFILE
-        </span>
+        </span> */}
       </div>
       <div className={styles.footerSidebar}>
         <a href="https://github.com/luisvinicius09" rel="noreferrer" target="_blank">
