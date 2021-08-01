@@ -33,7 +33,7 @@ const Home = () => {
     dispatch(fetchCarsData());
   }, [dispatch]);
 
-  console.log(state);
+  // console.log(state);
   return (
     <div className={styles.wrapper}>
       {state.utils.sideBar ? <SideBar /> : null}
