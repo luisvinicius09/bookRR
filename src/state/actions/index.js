@@ -4,9 +4,9 @@ const FETCH_REQUEST = 'FETCH_REQUEST';
 
 const FETCH_ERROR = 'FETCH_ERROR';
 
-const carsURL = 'http://localhost:3000/cars';
+const carsURL = 'https://api-rentalrr.herokuapp.com/cars';
 
-const logInURL = '';
+const logInURL = 'https://api-rentalrr.herokuapp.com/sessions';
 
 export const fetchCarsData = (service = axios) => async (dispatch) => {
   dispatch({ type: FETCH_REQUEST });
@@ -32,11 +32,13 @@ export const fetchCarData = (id) => async (dispatch) => {
   }
 }
 
-export const handleRegistration = (service = axios, data) => async (dispatch) => {
+export const handleRegistration = (data) => async (dispatch) => {
   dispatch({ type: 'REQUEST' });
 
   try {
-    const res = await service.post(logInURL, data);
+    const res = await axios.post(logInURL, {
+      user: data,
+    });
 
     dispatch({ type: "REGISTER_USER", payload: res.data})
   } catch (error) {
@@ -44,11 +46,13 @@ export const handleRegistration = (service = axios, data) => async (dispatch) =>
   }
 }
 
-export const handleLogin = (service = axios, data) => async (dispatch) => {
+export const handleLogin = (data) => async (dispatch) => {
   dispatch({ type: 'REQUEST' });
 
   try {
-    const res = await service.post(logInURL, data);
+    const res = await axios.post(logInURL, {
+      user: data,
+    });
 
     dispatch({ type: "LOG_IN", payload: res.data})
   } catch (error) {

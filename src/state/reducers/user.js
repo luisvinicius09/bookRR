@@ -18,11 +18,13 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        user: action.payload
       };
     case 'LOG_IN':
       return {
         loading: false,
         loggedIn: true,
+        user: action.payload.user,
         ...state,
       };
     case 'ERROR':
