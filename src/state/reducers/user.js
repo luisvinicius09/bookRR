@@ -4,6 +4,7 @@ const initialState = {
   appoiments: [],
   error: null,
   loading: false,
+  status: undefined,
 }
 
 const userReducer = (state = initialState, action) => {
@@ -18,13 +19,21 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        user: action.payload
+        user: action.payload.user,
+        loggedIn: action.payload.logged_in,
       };
     case 'LOG_IN':
       return {
         loading: false,
-        loggedIn: true,
-        user: action.payload.user,
+        status: action.payload.status,
+        loggedIn: action.payload.logged_in,
+        user: action.payload,
+        ...state,
+      };
+    case 'LOGGED_IN':
+      return {
+        loading: false,
+        loggedIn: action.payload.logged_in,
         ...state,
       };
     case 'ERROR':
