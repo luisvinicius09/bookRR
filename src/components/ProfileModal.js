@@ -1,33 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal, ModalHeader, ModalBody, Button, Form, FormGroup, Input, FormFeedback, Label } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleProfileModal } from '../state/actions';
+import { handleProfileModal, handleLogin, handleRegistration } from '../state/actions';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-const schema = yup.object().shape({
+const schemaSignIn = yup.object().shape({
   email: yup.string().email().required("Email is required!"),
-  password: yup.string().required("Password is required!").min(6, "Your password must be 6 characters long!"),
+  password: yup.string().required("Password is required!").min(4, "Your password must be 6 characters long!"),
+});
+
+const schemaSignUp = yup.object().shape({
+  email: yup.string().email().required("Email is required!"),
+  password: yup.string().required("Password is required!").min(4, "Your password must be 6 characters long!"),
 });
 
 const ProfileModal = ({ isOpen, toggleHandler }) => {
   const [display, setDisplay] = useState(false);
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(schema),
+  const {
+    register: registerSignIn,
+    handleSubmit: handleSubmitSignIn,
+    formState: {
+      errors: errorsSignIn
+    }
+  } = useForm({
+    resolver: yupResolver(schemaSignIn),
   });
 
-  const submitSignIn = data => console.log(data);
-  const submitSignUp = data => console.log(data);
-  
+  const {
+    register: registerSignUp,
+    handleSubmit: handleSubmitSignUp,
+    formState: {
+      errors: errorsSignUp
+    }
+  } = useForm({
+    resolver: yupResolver(schemaSignUp),
+  });
+
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+
+  useEffect(() => {
+    console.log(state);
+  }, [state, dispatch]);
+
+  const submitSignIn = (data) => {
+  }
+  const submitSignUp = (data) => {
+    dispatch(handleRegistration(data));
+  }
 
   const handlePM = () => {
     dispatch(handleProfileModal());
   };
-
 
   const displaySignUp = () => {
     setDisplay(true);
@@ -37,28 +64,28 @@ const ProfileModal = ({ isOpen, toggleHandler }) => {
     setDisplay(false);
   };
 
-  if (errors) {
-    console.log(errors);
+  if (errorsSignIn) {
+    console.log(errorsSignIn);
   }
 
   return (
     <>
       <Modal isOpen={isOpen} toggle={toggleHandler}>
         <ModalHeader>
-          <button type="button" onClick={() => setDisplay(false)}>Sign In</button>
-          <button type="button" onClick={() => setDisplay(true)}>Sign Up</button>
+          <button type="button" onClick={displaySignIn}>Sign In</button>
+          <button type="button" onClick={displaySignUp}>Sign Up</button>
           <button type="button" onClick={toggleHandler}>Close</button>
         </ModalHeader>
         <ModalBody>
           {!display ? (
             <div>
               <h2>Sign In</h2>
-              <Form onSubmit={handleSubmit(submitSignIn)}>
+              <Form onSubmit={handleSubmitSignIn(submitSignIn)}>
                 <FormGroup>
                   <Label for="email">
                     Email
                   </Label>
-                  <Input {...register('email')} />
+                  <Input {...registerSignIn('email')} />
                   <FormFeedback>
                     {/* {errors.email.message ? errors?.email.message : null} */}
                   </FormFeedback>
@@ -67,7 +94,7 @@ const ProfileModal = ({ isOpen, toggleHandler }) => {
                   <Label for="password">
                     Password
                   </Label>
-                  <Input {...register('password')} />
+                  <Input {...registerSignIn('password')} />
                   <FormFeedback>
                     {/* {errors.password.message ? errors?.password.message : null} */}
                   </FormFeedback>
@@ -77,9 +104,45 @@ const ProfileModal = ({ isOpen, toggleHandler }) => {
             </div>
           ) : (
             <div>
-              <h2>Other</h2>
-              <Form onSubmit={handleSubmit(submitSignUp)}>
-                
+              <h2>Sign Up</h2>
+              <Form onSubmit={handleSubmitSignUp(submitSignUp)}>
+                <FormGroup>
+                  <Label for="username">
+                    Username
+                  </Label>
+                  <Input {...registerSignUp('username')} />
+                  <FormFeedback>
+                    {/* {errors.username.message ? errors?.username.message : null} */}
+                  </FormFeedback>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="email">
+                    Email
+                  </Label>
+                  <Input {...registerSignUp('email')} />
+                  <FormFeedback>
+                    {/* {errors.email.message ? errors?.email.message : null} */}
+                  </FormFeedback>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="password">
+                    Password
+                  </Label>
+                  <Input {...registerSignUp('password')} />
+                  <FormFeedback>
+                    {/* {errors.password.message ? errors?.password.message : null} */}
+                  </FormFeedback>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="password_confirmation">
+                    Password Confirmation
+                  </Label>
+                  <Input {...registerSignUp('password_confirmation')} />
+                  <FormFeedback>
+                    {/* {errors.password_confirmation.message ? errors?.password_confirmation.message : null} */}
+                  </FormFeedback>
+                </FormGroup>
+                <Button type="submit">Submit</Button>
               </Form>
             </div>
           )}
