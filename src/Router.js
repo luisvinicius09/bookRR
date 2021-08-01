@@ -10,6 +10,7 @@ import Home from './views/Home';
 import Car from './views/Car';
 import Profile from './views/Profile';
 import NoMatch from './views/NoMatch';
+import Appoiments from './views/Appoiments';
 
 const Routes = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const Routes = () => (
       <Route exact path="/home" component={Home} />
       <Route exact path="/cars/:car_id" component={Car} />
       <Route exact path="/profile/:id" component={Profile} />
+      <Route exact path="/appoiments" component={Appoiments} />
       <Route path="*">
         <NoMatch />
       </Route>
