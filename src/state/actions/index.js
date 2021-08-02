@@ -70,8 +70,14 @@ export const handleIsLogged_In = () => async (dispatch) => {
   }
 }
 
-export const createAppoiment = () => async (dispatch) => {
-  dispatch()
+export const createAppoiment = (service = axios, data) => async (dispatch) => {
+  dispatch({ type: "REQUEST" });
+
+  try {
+    const res = await service.post(``, data)
+  } catch (error) {
+    dispatch({ type: "ERROR" });
+  }
 }
 
 export const handleSideBar = () => ({

@@ -12,6 +12,10 @@ const appoimentsReducer = (state = initialState, action) => {
       return {
         ...state,
       }
+    case "ERROR":
+      return {
+        ...state,
+      }
     default:
       return {
         ...state
