@@ -3,6 +3,7 @@ const initialState = {
   sideBar: false,
   profile: false,
   carsModal: false,
+  appoimentsModal: false,
 };
 
 const utilReducer = (state = initialState, action) => {
@@ -36,6 +37,12 @@ const utilReducer = (state = initialState, action) => {
         ...state,
         carsModal: false,
         modal: false,
+      }
+    case "HANDLE_APPOIMENT":
+      return {
+        ...state,
+        appoimentsModal: !state.appoimentsModal,
+        sideBar: false,
       }
     default:
       return state;

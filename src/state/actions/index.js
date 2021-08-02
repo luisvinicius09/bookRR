@@ -70,6 +70,10 @@ export const handleIsLogged_In = () => async (dispatch) => {
   }
 }
 
+export const handleAppoimentModal = () => ({
+  type: "HANDLE_APPOIMENT",
+})
+
 export const handleSideBar = () => ({
   type: "HANDLE_SIDEBAR",
 });
