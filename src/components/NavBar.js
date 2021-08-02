@@ -13,9 +13,9 @@ const NavBar = ({ loggedIn, handlerSB, handlerPM }) => {
           </span>
         </div>
         <div>
-          <span onClick={handlerPM} className={styles.iconClicker}>
+          {/* <span onClick={handlerPM} className={styles.iconClicker}>
             <img src={ProfileImage} alt="" className={styles.topIcons}/>
-          </span>
+          </span> */}
         </div>
       </div>
     </Row>
