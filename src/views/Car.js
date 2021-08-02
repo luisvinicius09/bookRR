@@ -4,10 +4,11 @@ import { useParams } from 'react-router';
 import { Container } from 'reactstrap';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
-import { handleSideBar, handleProfileModal, fetchCarData, handleCarsModal, fetchCarsData } from '../state/actions';
+import { handleSideBar, handleProfileModal, fetchCarData, handleCarsModal, fetchCarsData, handleAppoimentModal } from '../state/actions';
 import styles from '../assets/css/car.module.css';
 import CarsModal from '../components/CarsModal';
 import ProfileModal from '../components/ProfileModal';
+import AppoimentModal from '../components/AppoimentModal';
 
 const Car = () => {
   const state = useSelector((state) => state);
@@ -44,6 +45,10 @@ const Car = () => {
     dispatch(handleCarsModal());
   };
 
+  const handleA = () => {
+    dispatch(handleAppoimentModal());
+  };
+
   return (
     <div className={styles.wrapper}>
       {state.utils.sideBar ? <SideBar /> : null}
@@ -67,7 +72,7 @@ const Car = () => {
                   </tr>
                 </tbody>
               </table>
-              <button type="button">Test Drive</button>
+              <button type="button" onClick={() => handleA()}>Test Drive</button>
             </div>
             <div className={styles.nameContainer}>
               <h1>{car.name}</h1>
@@ -76,7 +81,9 @@ const Car = () => {
 
           <CarsModal toggleHandler={handleCM}/>
 
-          <ProfileModal isOpen={state.utils.profile} toggleHandler={handlePM}/>
+          {/* <ProfileModal isOpen={state.utils.profile} toggleHandler={handlePM}/> */}
+
+          <AppoimentModal isOpen={state.utils.appoimentsModal} toggleHandler={handleA} id={car_id}/>
 
         </Container>
       )}
