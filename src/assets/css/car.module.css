@@ -31,6 +31,25 @@
   align-items: center;
 }
 
+.tableRow td {
+  padding: 15px 50px 15px 50px;
+  border: 3px solid black;
+}
+
+.testDrive {
+  outline: none;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin: 15px;
+  background-color: var(--five);
+  color: #fff;
+}
+
+.testDrive:hover {
+  opacity: 0.7;
+}
+
 @media only screen and (min-width: 650px) {
   .wrapper {
     display: flex;

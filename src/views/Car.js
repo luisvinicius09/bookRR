@@ -62,17 +62,17 @@ const Car = () => {
             <div className={styles.tableContainer}>
               <table>
                 <tbody>
-                  <tr>
+                  <tr className={styles.tableRow}>
                     <td>Price: </td>
-                    <td>{car.price}</td>
+                    <td><b>{car.price}</b></td>
                   </tr>
-                  <tr>
+                  <tr className={styles.tableRow}>
                     <td>Fee:</td>
-                    <td>{car.fee}</td>
+                    <td><b>{car.fee}</b></td>
                   </tr>
                 </tbody>
               </table>
-              <button type="button" onClick={() => handleA()}>Test Drive</button>
+              <button type="button" onClick={() => handleA()} className={styles.testDrive}><b>TEST DRIVE</b></button>
             </div>
             <div className={styles.nameContainer}>
               <h1>{car.name}</h1>
